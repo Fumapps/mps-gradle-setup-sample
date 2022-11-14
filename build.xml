@@ -32,10 +32,10 @@
   
   <target name="assemble" depends="classes, declare-mps-tasks">
     <mkdir dir="${build.layout}" />
-    <mkdir dir="${build.tmp}/default/MySetupSample.zip" />
-    <mkdir dir="${build.tmp}/default/MySetupSample.zip/MySetupSample" />
-    <mkdir dir="${build.tmp}/default/MySetupSample.zip/MySetupSample/META-INF" />
-    <echoxml file="${build.tmp}/default/MySetupSample.zip/MySetupSample/META-INF/plugin.xml">
+    <mkdir dir="${build.tmp}/default/MySetupSampleLanguage.zip" />
+    <mkdir dir="${build.tmp}/default/MySetupSampleLanguage.zip/MySetupSample" />
+    <mkdir dir="${build.tmp}/default/MySetupSampleLanguage.zip/MySetupSample/META-INF" />
+    <echoxml file="${build.tmp}/default/MySetupSampleLanguage.zip/MySetupSample/META-INF/plugin.xml">
       <idea-plugin xmlns:xi="http://www.w3.org/2001/XInclude">
         <id>MySetupSample</id>
         <name>MySetupSample</name>
@@ -48,7 +48,7 @@
         </extensions>
       </idea-plugin>
     </echoxml>
-    <mkdir dir="${build.tmp}/default/MySetupSample.zip/MySetupSample/lib" />
+    <mkdir dir="${build.tmp}/default/MySetupSampleLanguage.zip/MySetupSample/lib" />
     <mkdir dir="${build.tmp}/default/MySetupSample.jar" />
     <mkdir dir="${build.tmp}/default/MySetupSample.jar/META-INF" />
     <echoxml file="${build.tmp}/default/MySetupSample.jar/META-INF/plugin.xml">
@@ -64,11 +64,11 @@
         </extensions>
       </idea-plugin>
     </echoxml>
-    <jar destfile="${build.tmp}/default/MySetupSample.zip/MySetupSample/lib/MySetupSample.jar" duplicate="preserve">
+    <jar destfile="${build.tmp}/default/MySetupSampleLanguage.zip/MySetupSample/lib/MySetupSample.jar" duplicate="preserve">
       <fileset dir="${build.tmp}/default/MySetupSample.jar" />
     </jar>
-    <mkdir dir="${build.tmp}/default/MySetupSample.zip/MySetupSample/languages" />
-    <mkdir dir="${build.tmp}/default/MySetupSample.zip/MySetupSample/languages/MySetupSample" />
+    <mkdir dir="${build.tmp}/default/MySetupSampleLanguage.zip/MySetupSample/languages" />
+    <mkdir dir="${build.tmp}/default/MySetupSampleLanguage.zip/MySetupSample/languages/MySetupSample" />
     <mkdir dir="${build.tmp}/default/MySetupSampleLanguage.jar" />
     <mkdir dir="${build.tmp}/default/MySetupSampleLanguage.jar/META-INF" />
     <echoxml file="${build.tmp}/default/MySetupSampleLanguage.jar/META-INF/module.xml">
@@ -128,7 +128,7 @@
         <sources jar="MySetupSampleLanguage-src.jar" descriptor="MySetupSampleLanguage.mpl" />
       </module>
     </echoxml>
-    <jar destfile="${build.tmp}/default/MySetupSample.zip/MySetupSample/languages/MySetupSample/MySetupSampleLanguage.jar" duplicate="preserve">
+    <jar destfile="${build.tmp}/default/MySetupSampleLanguage.zip/MySetupSample/languages/MySetupSample/MySetupSampleLanguage.jar" duplicate="preserve">
       <fileset dir="${build.tmp}/java/out/MySetupSampleLanguage" />
       <fileset dir="${project_home}/languages/MySetupSampleLanguage/source_gen" includes="**/trace.info, **/exports, **/*.mps, **/checkpoints" />
       <fileset dir="${build.tmp}/default/MySetupSampleLanguage.jar" />
@@ -172,7 +172,7 @@
         <sources jar="MySetupSampleLanguage-src.jar" descriptor="MySetupSampleLanguage.mpl" />
       </module>
     </echoxml>
-    <jar destfile="${build.tmp}/default/MySetupSample.zip/MySetupSample/languages/MySetupSample/MySetupSampleLanguage-generator.jar" duplicate="preserve">
+    <jar destfile="${build.tmp}/default/MySetupSampleLanguage.zip/MySetupSample/languages/MySetupSample/MySetupSampleLanguage-generator.jar" duplicate="preserve">
       <fileset dir="${build.tmp}/java/out/MySetupSampleLanguage.generator" />
       <fileset dir="${project_home}/languages/MySetupSampleLanguage/generator/source_gen" includes="**/trace.info, **/exports, **/*.mps, **/checkpoints" />
       <fileset dir="${build.tmp}/default/MySetupSampleLanguage-generator.jar" />
@@ -183,7 +183,7 @@
     <copyModels todir="${build.tmp}/customProcessors/copyModels/languages-MySetupSampleLanguage-generator-templates">
       <fileset dir="${project_home}/languages/MySetupSampleLanguage/generator/templates" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
-    <jar destfile="${build.tmp}/default/MySetupSample.zip/MySetupSample/languages/MySetupSample/MySetupSampleLanguage-src.jar" duplicate="preserve">
+    <jar destfile="${build.tmp}/default/MySetupSampleLanguage.zip/MySetupSample/languages/MySetupSample/MySetupSampleLanguage-src.jar" duplicate="preserve">
       <fileset dir="${project_home}/languages/MySetupSampleLanguage/generator/source_gen">
         <exclude name="**/trace.info" />
         <exclude name="**/exports" />
@@ -200,8 +200,8 @@
       <zipfileset dir="${build.tmp}/customProcessors/copyModels/languages-MySetupSampleLanguage-models" prefix="module/models" />
       <zipfileset dir="${build.tmp}/customProcessors/copyModels/languages-MySetupSampleLanguage-generator-templates" prefix="module/generator/templates" />
     </jar>
-    <zip destfile="${build.layout}/MySetupSample.zip">
-      <fileset dir="${build.tmp}/default/MySetupSample.zip" />
+    <zip destfile="${build.layout}/MySetupSampleLanguage.zip">
+      <fileset dir="${build.tmp}/default/MySetupSampleLanguage.zip" />
     </zip>
     <echo file="${build.layout}/build.properties">mps.build.number=${mps.build.number}${line.separator}mps.date=${mps.date}${line.separator}mps.build.vcs.number=${mps.build.vcs.number}${line.separator}mps.teamcity.buildConfName=${mps.teamcity.buildConfName}${line.separator}mps.idea.platform.build.number=${mps.idea.platform.build.number}${line.separator}mps.mps.build.counter=${mps.mps.build.counter}${line.separator}mpsBootstrapCore.version.major=${mpsBootstrapCore.version.major}${line.separator}mpsBootstrapCore.version.minor=${mpsBootstrapCore.version.minor}${line.separator}mpsBootstrapCore.version.bugfixNr=${mpsBootstrapCore.version.bugfixNr}${line.separator}mpsBootstrapCore.version.eap=${mpsBootstrapCore.version.eap}${line.separator}mpsBootstrapCore.version=${mpsBootstrapCore.version}</echo>
   </target>

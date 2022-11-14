@@ -158,7 +158,7 @@
       <node concept="3981dG" id="6Qkc8gYscTf" role="39821P">
         <node concept="3_J27D" id="6Qkc8gYscTg" role="Nbhlr">
           <node concept="3Mxwew" id="6Qkc8gYscTh" role="3MwsjC">
-            <property role="3MwjfP" value="MySetupSample.zip" />
+            <property role="3MwjfP" value="MySetupSampleLanguage.zip" />
           </node>
         </node>
         <node concept="m$_wl" id="6Qkc8gYscTi" role="39821P">
