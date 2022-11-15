@@ -6,7 +6,7 @@ on:
   workflow_call:
 
 env:
-  PROJECT_NAME: "mps-gradle-setup-sample"
+  PROJECT_NAME: "MySetupSample"
   LANGUAGE_NAME: "MySetupSampleLanguage"
 
 jobs:
