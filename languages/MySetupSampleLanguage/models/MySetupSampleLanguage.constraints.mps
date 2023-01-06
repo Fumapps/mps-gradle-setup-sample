@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<model ref="r:85f781c6-1556-4d64-bdb8-eb9b649f8b2d(MySetupSampleLanguage.constraints)">
+<model ref="r:7c8eb5a9-318f-4b94-ba7f-0c700103f144(MySetupSampleLanguage.constraints)">
   <persistence version="9" />
   <languages>
     <use id="5dae8159-ab99-46bb-a40d-0cee30ee7018" name="jetbrains.mps.lang.constraints.rules.kinds" version="0" />
