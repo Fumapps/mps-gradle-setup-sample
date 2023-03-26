@@ -1,3 +1,5 @@
+/* This file is downloaded from https://github.com/vimotest/mps-gradle-scripts/raw/main/gradle/download-mps.gradle */
+
 /*
   Several gradle tasks to download MPS and the related JBR for the current OS.
  */
@@ -38,7 +40,9 @@ if (isMac()) {
 task downloadMpsAndPlugins {
     group 'mps-download'
     onlyIf {
-        !mpsZipFile.exists() || mpsPlugins.any { !file("$pluginsDirectory/mps-${getEffectivePluginName(it.key)}.zip").exists() }
+        !mpsZipFile.exists() ||
+        mpsPlugins.any { !file("$pluginsDirectory/mps-${getEffectivePluginName(it.key)}.zip").exists() } ||
+        project.hasProperty("customMpsPlugins") && customMpsPlugins.any { !file("$pluginsDirectory/mps-${it.key}.zip").exists() }
     }
     doLast {
         if (!mpsZipFile.exists()) {
