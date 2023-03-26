@@ -2,13 +2,13 @@
   This is an example file, which demonstrates how the gradle helper scripts can be used
  */
 
-ext.mpsVersion = "2021.3.2"
+ext.mpsVersion = "2022.2"
 ext.languageName = "MySetupSampleLanguage"
 
-ext.mpsPlugins = [ "LangDoc[2021.3]": 12325 ]
+ext.mpsPlugins = [ "LangDoc[2022.2]": 12325 ]
 
 ext.customMpsPlugins = [
-        "de.itemis.mps.extensions": "https://projects.itemis.de/nexus/service/local/repositories/mbeddr/content/de/itemis/mps/extensions/2021.3.2450.28b2c76/extensions-2021.3.2450.28b2c76.zip"
+        "de.itemis.mps.extensions": "https://artifacts.itemis.cloud/repository/maven-mps/de/itemis/mps/extensions/2022.2.2550.5317da9/extensions-2022.2.2550.5317da9.zip"
 ]
 
 apply from: 'gradle/init-gradle-scripts.gradle'
