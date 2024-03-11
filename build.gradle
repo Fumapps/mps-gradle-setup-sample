@@ -8,7 +8,7 @@ ext.languageName = "MySetupSampleLanguage"
 ext.mpsPlugins = [ "LangDoc[2023.2]": 12325 ]
 
 ext.customMpsPlugins = [
-        "de.itemis.mps.extensions": "https://artifacts.itemis.cloud/repository/maven-mps/de/itemis/mps/extensions/2023.2.2675.b35f4bc/extensions-2023.2.2675.b35f4bc.zip"
+        "de.itemis.mps.extensions": "https://artifacts.itemis.cloud/repository/maven-mps/de/itemis/mps/extensions/2023.2.2783.3a65bb6/extensions-2023.2.2783.3a65bb6.zip"
 ]
 
 apply from: 'gradle/init-gradle-scripts.gradle'
