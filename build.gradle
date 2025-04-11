@@ -2,7 +2,7 @@
   This is an example file, which demonstrates how the gradle helper scripts can be used
  */
 
-ext.mpsVersion = "2024.3.1"
+ext.mpsVersion = "2024.3.2"
 ext.languageName = "MySetupSampleLanguage"
 
 ext.mpsPlugins = [ "LangDoc[2024.1]": 12325 ]
