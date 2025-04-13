@@ -243,11 +243,30 @@ private void addLocalPluginsPathToVmOptions(String targetFolderName) {
 
 private def moveNestedPluginsUp(def outputDependenciesDirectory) {
     def movedNestedPluginsCounters = [:]
+
+    // Regard nested plugins with META-INF/plugin.xml
     fileTree(dir: outputDependenciesDirectory, includes: ['*/*/META-INF/plugin.xml']).each { nestedPluginXml ->
         def nestedPluginDir = nestedPluginXml.parentFile.parentFile
         def bundleDirectory = nestedPluginDir.parentFile
         Files.move(nestedPluginDir.toPath(), outputDependenciesDirectory.toPath().resolve(nestedPluginDir.name))
         movedNestedPluginsCounters.put(bundleDirectory.name, movedNestedPluginsCounters.get(bundleDirectory.name, 0) + 1)
+    }
+
+    // Regard nested plugins with alternative structure (e.g. languages and lib directories)
+    outputDependenciesDirectory.listFiles().each { bundleDir ->
+        if (bundleDir.isDirectory()) {
+            bundleDir.listFiles().each { possiblePluginDir ->
+                if (possiblePluginDir.isDirectory()) {
+                    def hasLanguagesDir = new File(possiblePluginDir, "languages").exists()
+                    def hasLibDir = new File(possiblePluginDir, "lib").exists()
+
+                    if (hasLanguagesDir && hasLibDir) {
+                        Files.move(possiblePluginDir.toPath(), outputDependenciesDirectory.toPath().resolve(possiblePluginDir.name))
+                        movedNestedPluginsCounters.put(bundleDir.name, movedNestedPluginsCounters.get(bundleDir.name, 0) + 1)
+                    }
+                }
+            }
+        }
     }
 
     movedNestedPluginsCounters.each { bundleName, count ->
