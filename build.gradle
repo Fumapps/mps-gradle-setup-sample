@@ -40,5 +40,7 @@ task openProjectInMps {
 
 task buildAndOpenProjectInMps {
     group 'mps'
-    dependsOn mpsBuild, openProjectInMps
+    dependsOn prepareMps, mpsBuild, openProjectInMps
+    mpsBuild.mustRunAfter prepareMps
+    openProjectInMps.mustRunAfter mpsBuild
 }
